@@ -102,7 +102,7 @@ export const TransactionsProvider = ({ children }) => {
 
     const sendTransaction = async () => {
         try {
-            if (!ethereum) return alert("Please install Meta-Mask");
+            if (ethereum) {
 
                 const { addressTo, amount, keyword, message } = formData;
                 const transactionsContract = createEthereumContract();
@@ -122,12 +122,8 @@ export const TransactionsProvider = ({ children }) => {
                     }],
                 });
 
-                
-                console.log("test1")
-
                 const transactionHash = await transactionsContract.transfer(addressTo, parsedAmount, message, keyword);
                 
-                console.log("test2")
                 
                 setIsLoading(true);
                 console.log(`Loading - ${transactionHash.hash}`);
@@ -139,12 +135,15 @@ export const TransactionsProvider = ({ children }) => {
 
                 setTransactionCount(transactionsCount.toNumber());
             
-        } catch (error) {
-            console.log(error);
-
-            throw new Error(error);
+        } else {
+            console.log("No ethereum object");
         }
-    };
+    } catch (error) {
+        console.log(error);
+
+        throw new Error("No ethereum object")
+    }
+};
 
     useEffect(() => {
         checkIfWalletIsConnect();

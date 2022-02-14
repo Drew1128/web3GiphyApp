@@ -23,8 +23,8 @@ const Footer = () => (
         <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 " />
 
         <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-            <p className="text-white text-[#37c7da] text-left text-xs">@AwesomeApps.dev</p>
-            <p className="text-white text-[#37c7da] text-right text-xs">All rights reserved</p>
+            <p className="text-white text-[#37c7da] text-left text-xs">DrewM1128@gmail.com</p>
+            <p className="text-white text-[#37c7da] text-right text-xs">Inspired by JavaScript Mastery</p>
         </div>
     </div>
 );
